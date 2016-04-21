@@ -24,10 +24,10 @@ public class ServiceAuthentificationImpl implements IServiceAuthentification {
 
 	private SessionFactory sessionFactory;
 
-	private static final String REQUETE_CONNEXION = "FROM users U WHERE u.login = :login "
-			+ "AND u.motDePasse = SHA256(:motDePasse)";
+	private static final String REQUETE_CONNEXION = "FROM User u WHERE u.login = :login "
+			+ "AND u.motDePasse = SHA1(:motDePasse)";
 
-	private static final String REQUETE_TOKEN = "FROM users U WHERE u.token = :token";
+	private static final String REQUETE_TOKEN = "FROM User u WHERE u.token = :token";
 	
 	private static final String REQUETE_SUPPRESSION_TOKEN = "UPDATE User u SET u.token = null, u.dateDeDerniereConnexion = null "
 			+ "WHERE u.dateDeDerniereConnexion < :date";
@@ -45,6 +45,8 @@ public class ServiceAuthentificationImpl implements IServiceAuthentification {
 			user = (User) queryConnexion.uniqueResult();
 			if (user != null) {
 				user.setToken(generateToken(user.getIdUser()));
+			} else {
+				user = new User();
 			}
 		} catch (Exception e) {
 			log.error(e);
@@ -66,7 +68,8 @@ public class ServiceAuthentificationImpl implements IServiceAuthentification {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.MINUTE, -30);
 		Query querySuppressionToken = sessionFactory.getCurrentSession().createQuery(REQUETE_SUPPRESSION_TOKEN);
-		querySuppressionToken.setParameter("date", calendar);
+		querySuppressionToken.setParameter("date", calendar.getTime());
+		querySuppressionToken.executeUpdate();
 	}
 
 	@Transactional
