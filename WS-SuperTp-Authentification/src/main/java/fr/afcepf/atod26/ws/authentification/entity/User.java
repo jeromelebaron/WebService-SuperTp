@@ -7,13 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name = "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
+	@Column(name = "id_users")
 	private int idUser;
 
 	@Column(nullable = false)
@@ -25,6 +27,7 @@ public class User {
 	private String token;
 
 	@Column(name = "date_derniere_connexion")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDeDerniereConnexion;
 
 	public User() {
