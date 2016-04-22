@@ -21,7 +21,7 @@ import fr.afcepf.atod26.ws.authentification.entity.User;
 public class ServiceAuthentificationImpl implements IServiceAuthentification {
 
 	/**
-	 * Pour du log.
+	 * Pour faire du log.
 	 */
 	private Logger log = Logger.getLogger(ServiceAuthentificationImpl.class);
 	/**
@@ -71,13 +71,19 @@ public class ServiceAuthentificationImpl implements IServiceAuthentification {
 	/**
 	 * {@inheritDoc}.
 	 */
+	@Transactional
 	@Override
 	public String verificationToken(String paramToken) {
 		log.info("Méthode verificationToken");
 		Session session = sessionFactory.getCurrentSession();
 		Query queryToken = session.createQuery(REQUETE_TOKEN);
 		queryToken.setParameter("token", paramToken);
-		return null;
+		User user = (User) queryToken.uniqueResult();
+		String token = null;
+		if (user != null) {
+			token = generateToken(user.getIdUser());
+		}
+		return token;
 	}
 
 	/**
