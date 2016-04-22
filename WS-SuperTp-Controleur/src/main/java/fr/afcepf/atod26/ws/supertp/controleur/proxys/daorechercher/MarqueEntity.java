@@ -1,6 +1,4 @@
-
 package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

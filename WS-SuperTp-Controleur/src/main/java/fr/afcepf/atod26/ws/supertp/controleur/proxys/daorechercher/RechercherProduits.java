@@ -1,8 +1,8 @@
-
 package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="marque" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}marqueEntity" minOccurs="0"/>
+ *         &lt;element ref="{http://ejb.supertp.webservice.atod26.afcepf.fr}marque" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,17 +31,18 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class RechercherProduits {
 
-    protected MarqueEntity marque;
+    @XmlElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
+    protected MarqueDTO marque;
 
     /**
      * Gets the value of the marque property.
      * 
      * @return
      *     possible object is
-     *     {@link MarqueEntity }
+     *     {@link MarqueDTO }
      *     
      */
-    public MarqueEntity getMarque() {
+    public MarqueDTO getMarque() {
         return marque;
     }
 
@@ -50,10 +51,10 @@ public class RechercherProduits {
      * 
      * @param value
      *     allowed object is
-     *     {@link MarqueEntity }
+     *     {@link MarqueDTO }
      *     
      */
-    public void setMarque(MarqueEntity value) {
+    public void setMarque(MarqueDTO value) {
         this.marque = value;
     }
 

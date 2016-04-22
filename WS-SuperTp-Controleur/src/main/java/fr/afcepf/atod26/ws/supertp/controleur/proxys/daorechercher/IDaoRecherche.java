@@ -46,7 +46,7 @@ public interface IDaoRecherche {
     @RequestWrapper(localName = "rechercherProduits", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduits")
     @ResponseWrapper(localName = "rechercherProduitsResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduitsResponse")
     public List<ProduitDTO> rechercherProduits(
-        @WebParam(name = "marque", targetNamespace = "")
-        MarqueEntity marque);
+        @WebParam(name = "marque", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
+        MarqueDTO marque);
 
 }

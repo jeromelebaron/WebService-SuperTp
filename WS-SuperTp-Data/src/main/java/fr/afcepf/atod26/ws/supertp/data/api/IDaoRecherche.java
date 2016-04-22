@@ -9,7 +9,6 @@ import javax.jws.WebService;
 
 import fr.afcepf.atod26.ws.supertp.data.dto.MarqueDTO;
 import fr.afcepf.atod26.ws.supertp.data.dto.ProduitDTO;
-import fr.afcepf.atod26.ws.supertp.data.entity.MarqueEntity;
 
 @WebService(targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
 public interface IDaoRecherche {
@@ -20,6 +19,6 @@ public interface IDaoRecherche {
 
 	@WebMethod(operationName = "rechercherProduits")
 	@WebResult(name = "resultatRechercherProduit")
-	List<ProduitDTO> rechercherProduits(@WebParam(name = "marque") MarqueEntity paramMarque);
+	List<ProduitDTO> rechercherProduits(@WebParam(name = "marque") MarqueDTO paramMarque);
 
 }

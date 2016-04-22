@@ -9,7 +9,11 @@ import fr.afcepf.atod26.ws.supertp.data.entity.ProduitEntity;
 
 public class EntityToDTO {
 
-	private final static DozerBeanMapper DOZER_BEAN_MAPPER = new DozerBeanMapper();
+	private static final DozerBeanMapper DOZER_BEAN_MAPPER = new DozerBeanMapper();
+
+	private EntityToDTO() {
+		// EMPTY
+	}
 
 	public static ProduitDTO fromProduitEntityToProduitDTO(final ProduitEntity produitEntity) {
 		final ProduitDTO produitDTO = new ProduitDTO();

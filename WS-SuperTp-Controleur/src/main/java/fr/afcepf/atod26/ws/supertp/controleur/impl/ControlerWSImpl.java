@@ -2,6 +2,8 @@ package fr.afcepf.atod26.ws.supertp.controleur.impl;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.jws.WebService;
 import javax.xml.namespace.QName;
@@ -9,10 +11,17 @@ import javax.xml.ws.Service;
 
 import org.apache.log4j.Logger;
 
+import fr.afcepf.atod26.ws.supertp.assembleur.DTOToObjet;
+import fr.afcepf.atod26.ws.supertp.assembleur.ObjetToDTO;
 import fr.afcepf.atod26.ws.supertp.controleur.api.IControllerWS;
 import fr.afcepf.atod26.ws.supertp.controleur.api.IServiceAuthentification;
+import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.DaoRecherche;
+import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.IDaoRecherche;
+import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.MarqueDTO;
+import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.ProduitDTO;
 import fr.afcepf.atod26.ws.supertp.exception.WSControlerException;
 import fr.afcepf.atod26.ws.supertp.objets.Marque;
+import fr.afcepf.atod26.ws.supertp.objets.Produit;
 import fr.afcepf.atod26.ws.supertp.reponses.ReponseGetAllMarque;
 import fr.afcepf.atod26.ws.supertp.reponses.ReponseRechercheProduit;
 
@@ -47,12 +56,21 @@ public class ControlerWSImpl implements IControllerWS {
 	}
 
 	@Override
-	public ReponseRechercheProduit rechercherProduit(final String paramToken, final Marque paramMarque) throws WSControlerException {
+	public ReponseRechercheProduit rechercherProduit(final String paramToken, final Marque paramMarque)
+			throws WSControlerException {
 		log.info("Méthode rechercherProduit");
 		final ReponseRechercheProduit reponseRechercheProduit = new ReponseRechercheProduit();
 		final String tokenVerifie = verificationToken(paramToken);
 		reponseRechercheProduit.setToken(tokenVerifie);
-		// TODO Finir l'implémentation : appeler le Dao et faire la recherche
+		DaoRecherche service = new DaoRecherche();
+		IDaoRecherche proxyDaoRecherche = service.getDaoRechercherImplPort();
+		List<ProduitDTO> lesProduitDTO = proxyDaoRecherche.rechercherProduits(ObjetToDTO
+				.fromMarqueToMarqueDTO(paramMarque));
+		List<Produit> lesProduit = new ArrayList<>();
+		for (ProduitDTO localProduitDTO : lesProduitDTO) {
+			lesProduit.add(DTOToObjet.fromProduitDTOToProduit(localProduitDTO));
+		}
+		reponseRechercheProduit.setLesProduit(lesProduit);
 		return reponseRechercheProduit;
 	}
 
@@ -62,7 +80,14 @@ public class ControlerWSImpl implements IControllerWS {
 		final ReponseGetAllMarque reponseGetAllMarque = new ReponseGetAllMarque();
 		final String tokenVerifie = verificationToken(paramToken);
 		reponseGetAllMarque.setToken(tokenVerifie);
-		// TODO Finir l'implémentation
+		DaoRecherche service = new DaoRecherche();
+		IDaoRecherche proxyDaoRecherche = service.getDaoRechercherImplPort();
+		List<MarqueDTO> lesMarqueDTO = proxyDaoRecherche.rechercherMarques();
+		List<Marque> lesMarques = new ArrayList<>();
+		for (MarqueDTO localMarqueDTO : lesMarqueDTO) {
+			lesMarques.add(DTOToObjet.fromMarqueDTOToMarque(localMarqueDTO));
+		}
+		reponseGetAllMarque.setListeDeMarque(lesMarques);
 		return reponseGetAllMarque;
 	}
 

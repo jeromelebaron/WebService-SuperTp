@@ -87,22 +87,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link MarqueEntity }
-     * 
-     */
-    public MarqueEntity createMarqueEntity() {
-        return new MarqueEntity();
-    }
-
-    /**
-     * Create an instance of {@link ProduitEntity }
-     * 
-     */
-    public ProduitEntity createProduitEntity() {
-        return new ProduitEntity();
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RechercherProduits }{@code >}}
      * 
      */

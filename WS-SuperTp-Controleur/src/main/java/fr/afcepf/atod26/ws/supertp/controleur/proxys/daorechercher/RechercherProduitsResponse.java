@@ -1,4 +1,3 @@
-
 package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
 
 import java.util.ArrayList;
