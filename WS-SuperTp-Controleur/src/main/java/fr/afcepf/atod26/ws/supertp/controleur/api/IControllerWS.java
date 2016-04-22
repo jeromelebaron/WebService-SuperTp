@@ -14,7 +14,7 @@ import fr.afcepf.atod26.ws.supertp.reponses.ReponseRechercheProduit;
 
 @WebService(targetNamespace = "http://controler.supertp.webservice.atod26.afcepf.fr")
 @SOAPBinding(style = Style.DOCUMENT)
-public interface IControlerWS {
+public interface IControllerWS {
 
 	@WebMethod(operationName = "connexion")
 	@WebResult(name = "resultatConnexion")

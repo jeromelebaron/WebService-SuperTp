@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import fr.afcepf.atod26.ws.supertp.objets.Produit;
 
-@XmlRootElement(namespace = "http://controler.lebaronjerome.supertp.webservice.atod26.afcepf.fr")
+@XmlRootElement(namespace = "http://controler.supertp.webservice.atod26.afcepf.fr")
 public class ReponseRechercheProduit {
 
 	/**

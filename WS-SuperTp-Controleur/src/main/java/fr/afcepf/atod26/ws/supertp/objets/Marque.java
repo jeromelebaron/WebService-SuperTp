@@ -1,8 +1,11 @@
 package fr.afcepf.atod26.ws.supertp.objets;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(namespace = "http://controler.lebaronjerome.supertp.webservice.atod26.afcepf.fr")
+@XmlRootElement(namespace = "http://controler.supertp.webservice.atod26.afcepf.fr")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Marque {
 
 	/**

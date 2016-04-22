@@ -15,6 +15,7 @@
 		<module>WS-SuperTp-Parent</module>
 		<module>WS-SuperTp-Authentification</module>
 		<module>WS-SuperTp-Controleur</module>
+		<module>WS-SuperTp-Data</module>
 	</modules>
 
 </project>

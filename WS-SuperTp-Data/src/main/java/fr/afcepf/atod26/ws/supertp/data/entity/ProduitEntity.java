@@ -1,15 +1,22 @@
-package fr.afcepf.atod26.ws.supertp.objets;
+package fr.afcepf.atod26.ws.supertp.data.entity;
 
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(namespace = "http://controler.supertp.webservice.atod26.afcepf.fr")
-public class Produit {
+@Entity
+@Table(name = "produit")
+public class ProduitEntity {
 
 	/**
 	 * Identifiant du produit.
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	/**
 	 * Libelle du produit.
@@ -24,18 +31,16 @@ public class Produit {
 	 */
 	private String description;
 	/**
-	 * {@link Marque} du produit.
+	 * {@link MarqueEntity} du produit.
 	 */
-	private Marque marque;
-	/**
-	 * La collection d'image du produit.
-	 */
-	private List<String> lesImages;
+	@ManyToOne
+	@JoinColumn(name = "id_marque")
+	private MarqueEntity marque;
 
 	/**
 	 * Constructeur vide.
 	 */
-	public Produit() {
+	public ProduitEntity() {
 		// EMPTY
 	}
 
@@ -46,16 +51,14 @@ public class Produit {
 	 * @param prix {@link #prix}.
 	 * @param description {@link #description}.
 	 * @param marque {@link #marque}.
-	 * @param lesImages {@link #lesImages}.
 	 */
-	public Produit(Integer id, String libelle, double prix, String description, Marque marque, List<String> lesImages) {
+	public ProduitEntity(Integer id, String libelle, double prix, String description, MarqueEntity marque) {
 		super();
 		this.id = id;
 		this.libelle = libelle;
 		this.prix = prix;
 		this.description = description;
 		this.marque = marque;
-		this.lesImages = lesImages;
 	}
 
 	public Integer getId() {
@@ -90,20 +93,12 @@ public class Produit {
 		this.description = description;
 	}
 
-	public Marque getMarque() {
+	public MarqueEntity getMarque() {
 		return marque;
 	}
 
-	public void setMarque(Marque marque) {
+	public void setMarque(MarqueEntity marque) {
 		this.marque = marque;
-	}
-
-	public List<String> getLesImages() {
-		return lesImages;
-	}
-
-	public void setLesImages(List<String> lesImages) {
-		this.lesImages = lesImages;
 	}
 
 }
