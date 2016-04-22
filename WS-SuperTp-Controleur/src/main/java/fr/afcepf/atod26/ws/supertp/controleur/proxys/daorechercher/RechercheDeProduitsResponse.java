@@ -8,12 +8,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for rechercherProduitsResponse complex type.
+ * <p>Java class for rechercheDeProduitsResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="rechercherProduitsResponse">
+ * &lt;complexType name="rechercheDeProduitsResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -27,10 +27,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "rechercherProduitsResponse", propOrder = {
+@XmlType(name = "rechercheDeProduitsResponse", propOrder = {
     "resultatRechercherProduit"
 })
-public class RechercherProduitsResponse {
+public class RechercheDeProduitsResponse {
 
     protected List<ProduitDTO> resultatRechercherProduit;
 

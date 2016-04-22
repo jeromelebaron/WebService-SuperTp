@@ -25,6 +25,20 @@ public interface IDaoRecherche {
 
     /**
      * 
+     * @param paramMarqueDTO
+     * @return
+     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.ProduitDTO>
+     */
+    @WebMethod
+    @WebResult(name = "resultatRechercherProduit", targetNamespace = "")
+    @RequestWrapper(localName = "rechercheDeProduits", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercheDeProduits")
+    @ResponseWrapper(localName = "rechercheDeProduitsResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercheDeProduitsResponse")
+    public List<ProduitDTO> rechercheDeProduits(
+        @WebParam(name = "paramMarqueDTO", targetNamespace = "")
+        MarqueDTO paramMarqueDTO);
+
+    /**
+     * 
      * @return
      *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.MarqueDTO>
      */
@@ -33,19 +47,5 @@ public interface IDaoRecherche {
     @RequestWrapper(localName = "rechercherMarques", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherMarques")
     @ResponseWrapper(localName = "rechercherMarquesResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherMarquesResponse")
     public List<MarqueDTO> rechercherMarques();
-
-    /**
-     * 
-     * @param marque
-     * @return
-     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.ProduitDTO>
-     */
-    @WebMethod
-    @WebResult(name = "resultatRechercherProduit", targetNamespace = "")
-    @RequestWrapper(localName = "rechercherProduits", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduits")
-    @ResponseWrapper(localName = "rechercherProduitsResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduitsResponse")
-    public List<ProduitDTO> rechercherProduits(
-        @WebParam(name = "marque", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
-        MarqueDTO marque);
 
 }

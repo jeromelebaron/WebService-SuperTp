@@ -2,7 +2,6 @@ package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
  *         &lt;element name="libelle" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element ref="{http://ejb.supertp.webservice.atod26.afcepf.fr}marque" minOccurs="0"/>
+ *         &lt;element name="marque" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}marqueDTO" minOccurs="0"/>
  *         &lt;element name="prix" type="{http://www.w3.org/2001/XMLSchema}double"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -42,7 +41,6 @@ public class ProduitDTO {
     protected String description;
     protected Integer id;
     protected String libelle;
-    @XmlElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
     protected MarqueDTO marque;
     protected double prix;
 

@@ -64,7 +64,7 @@ public class ControlerWSImpl implements IControllerWS {
 		reponseRechercheProduit.setToken(tokenVerifie);
 		DaoRecherche service = new DaoRecherche();
 		IDaoRecherche proxyDaoRecherche = service.getDaoRechercherImplPort();
-		List<ProduitDTO> lesProduitDTO = proxyDaoRecherche.rechercherProduits(ObjetToDTO
+		List<ProduitDTO> lesProduitDTO = proxyDaoRecherche.rechercheDeProduits(ObjetToDTO
 				.fromMarqueToMarqueDTO(paramMarque));
 		List<Produit> lesProduit = new ArrayList<>();
 		for (ProduitDTO localProduitDTO : lesProduitDTO) {
