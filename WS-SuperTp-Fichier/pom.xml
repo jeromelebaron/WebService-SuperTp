@@ -1,12 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>fr.afcepf.atod26</groupId>
-    <artifactId>WS-SuperTP-Parent</artifactId>
-    <version>0.1</version>
-  </parent>
-  <groupId>fr.afcepf.atod26</groupId>
-  <artifactId>WS-SuperTP-Fichier</artifactId>
-  <version>0.1</version>
-  <packaging>war</packaging>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.afcepf.atod26</groupId>
+		<artifactId>WS-SuperTP-Parent</artifactId>
+		<version>0.1</version>
+	</parent>
+	<artifactId>WS-SuperTP-Fichier</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+	</dependencies>
 </project>
