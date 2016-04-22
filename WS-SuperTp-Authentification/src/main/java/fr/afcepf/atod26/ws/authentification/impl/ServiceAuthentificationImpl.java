@@ -100,7 +100,7 @@ public class ServiceAuthentificationImpl implements IServiceAuthentification {
 
 	/**
 	 * Pour générer un token aléatoire et l'enregistrer pour l'utilisateur.
-	 * @param idUser l'identifiant de l'utilisateur pour lequel enregistré le token.
+	 * @param idUser l'identifiant de l'utilisateur pour lequel enregistrer le token.
 	 * @return le token généré.
 	 */
 	@Transactional
