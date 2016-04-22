@@ -15,29 +15,54 @@ import javax.persistence.TemporalType;
 @Table(name = "users")
 public class User {
 
+	/**
+	 * L'identifiant unique du user.
+	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_users")
 	private int idUser;
 
+	/**
+	 * Le login de connexion.
+	 */
 	@Column(nullable = false)
 	private String login;
 
+	/**
+	 * Le mot de passe pour la connexion (encrypté en SHA1).
+	 */
 	@Column(name = "mot_de_passe", nullable = false)
 	private String motDePasse;
 
+	/**
+	 * Le token aléatoire nécessaire pour sécuriser la connexion.
+	 */
 	private String token;
 
+	/**
+	 * La date de dernière connexion : si elle date de plus de 30 minutes, un nouveau token doit être généré.
+	 */
 	@Column(name = "date_derniere_connexion")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateDeDerniereConnexion;
 
+	/**
+	 * Constructeur vide.
+	 */
 	public User() {
 		// EMPTY
 	}
 
-	public User(int idUser, String login, String motDePasse, String token,
-			Date dateDeDerniereConnexion) {
+	/**
+	 * Constructeur plein
+	 * @param idUser {@link #idUser}.
+	 * @param login {@link #login}.
+	 * @param motDePasse {@link #motDePasse}.
+	 * @param token {@link #token}.
+	 * @param dateDeDerniereConnexion {@link #dateDeDerniereConnexion}.
+	 */
+	public User(int idUser, String login, String motDePasse, String token, Date dateDeDerniereConnexion) {
 		this.idUser = idUser;
 		this.login = login;
 		this.motDePasse = motDePasse;
