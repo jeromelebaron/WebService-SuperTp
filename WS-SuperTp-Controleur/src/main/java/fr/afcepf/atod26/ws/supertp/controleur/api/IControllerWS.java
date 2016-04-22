@@ -24,7 +24,7 @@ public interface IControllerWS {
 	@WebMethod(operationName = "rechercherUnProduit")
 	@WebResult(name = "resultatRechercheProduit")
 	ReponseRechercheProduit rechercherProduit(@WebParam(name = "token") String paramToken,
-			@WebParam(name = "marque") Marque paramMarque) throws WSControlerException;
+			@WebParam(name = "laMarque") Marque paramMarque) throws WSControlerException;
 
 	@WebMethod(operationName = "recupererLesMarques")
 	@WebResult(name = "resultatRecuperationMarques")
