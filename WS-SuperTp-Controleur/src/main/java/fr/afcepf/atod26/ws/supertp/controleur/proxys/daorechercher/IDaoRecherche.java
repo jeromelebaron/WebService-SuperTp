@@ -27,25 +27,25 @@ public interface IDaoRecherche {
     /**
      * 
      * @return
-     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.MarqueEntity>
+     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.MarqueDTO>
      */
     @WebMethod
     @WebResult(name = "resultatRechercherMarque", targetNamespace = "")
     @RequestWrapper(localName = "rechercherMarques", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherMarques")
     @ResponseWrapper(localName = "rechercherMarquesResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherMarquesResponse")
-    public List<MarqueEntity> rechercherMarques();
+    public List<MarqueDTO> rechercherMarques();
 
     /**
      * 
      * @param marque
      * @return
-     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.ProduitEntity>
+     *     returns java.util.List<fr.afcepf.atod26.webservice.supertp.ejb.ProduitDTO>
      */
     @WebMethod
     @WebResult(name = "resultatRechercherProduit", targetNamespace = "")
     @RequestWrapper(localName = "rechercherProduits", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduits")
     @ResponseWrapper(localName = "rechercherProduitsResponse", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", className = "fr.afcepf.atod26.webservice.supertp.ejb.RechercherProduitsResponse")
-    public List<ProduitEntity> rechercherProduits(
+    public List<ProduitDTO> rechercherProduits(
         @WebParam(name = "marque", targetNamespace = "")
         MarqueEntity marque);
 

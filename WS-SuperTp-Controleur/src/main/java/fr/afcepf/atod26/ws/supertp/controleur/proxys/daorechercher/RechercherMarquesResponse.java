@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="resultatRechercherMarque" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}marqueEntity" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="resultatRechercherMarque" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}marqueDTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class RechercherMarquesResponse {
 
-    protected List<MarqueEntity> resultatRechercherMarque;
+    protected List<MarqueDTO> resultatRechercherMarque;
 
     /**
      * Gets the value of the resultatRechercherMarque property.
@@ -53,13 +53,13 @@ public class RechercherMarquesResponse {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link MarqueEntity }
+     * {@link MarqueDTO }
      * 
      * 
      */
-    public List<MarqueEntity> getResultatRechercherMarque() {
+    public List<MarqueDTO> getResultatRechercherMarque() {
         if (resultatRechercherMarque == null) {
-            resultatRechercherMarque = new ArrayList<MarqueEntity>();
+            resultatRechercherMarque = new ArrayList<MarqueDTO>();
         }
         return this.resultatRechercherMarque;
     }

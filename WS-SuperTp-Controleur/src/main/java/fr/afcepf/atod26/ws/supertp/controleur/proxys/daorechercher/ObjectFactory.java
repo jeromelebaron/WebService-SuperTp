@@ -25,6 +25,8 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _RechercherProduits_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "rechercherProduits");
+    private final static QName _Marque_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "marque");
+    private final static QName _Produit_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "produit");
     private final static QName _RechercherProduitsResponse_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "rechercherProduitsResponse");
     private final static QName _RechercherMarques_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "rechercherMarques");
     private final static QName _RechercherMarquesResponse_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "rechercherMarquesResponse");
@@ -42,6 +44,14 @@ public class ObjectFactory {
      */
     public RechercherProduitsResponse createRechercherProduitsResponse() {
         return new RechercherProduitsResponse();
+    }
+
+    /**
+     * Create an instance of {@link ProduitDTO }
+     * 
+     */
+    public ProduitDTO createProduitDTO() {
+        return new ProduitDTO();
     }
 
     /**
@@ -69,6 +79,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link MarqueDTO }
+     * 
+     */
+    public MarqueDTO createMarqueDTO() {
+        return new MarqueDTO();
+    }
+
+    /**
      * Create an instance of {@link MarqueEntity }
      * 
      */
@@ -91,6 +109,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", name = "rechercherProduits")
     public JAXBElement<RechercherProduits> createRechercherProduits(RechercherProduits value) {
         return new JAXBElement<RechercherProduits>(_RechercherProduits_QNAME, RechercherProduits.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MarqueDTO }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", name = "marque")
+    public JAXBElement<MarqueDTO> createMarque(MarqueDTO value) {
+        return new JAXBElement<MarqueDTO>(_Marque_QNAME, MarqueDTO.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ProduitDTO }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", name = "produit")
+    public JAXBElement<ProduitDTO> createProduit(ProduitDTO value) {
+        return new JAXBElement<ProduitDTO>(_Produit_QNAME, ProduitDTO.class, null, value);
     }
 
     /**
