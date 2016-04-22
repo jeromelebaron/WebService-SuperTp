@@ -24,12 +24,13 @@ public class ControlerWSImpl implements IControlerWS {
 	private IServiceAuthentification proxyServiceAuthentification;
 
 	public ControlerWSImpl() {
+		log.info("Constructeur ControlerWSImpl");
 		try {
-			URL url = new URL(
+			final URL url = new URL(
 					"http://localhost:8080/WS-SuperTP-Authentification/serviceAuthentification/authentificationService?wsdl");
-			QName qName = new QName("http://lebaronjerome.supertp.ws.atod26.afcepf.fr",
-					"ServiceAuthentificationImplPort");
-			Service service = Service.create(url, qName);
+			final QName qName = new QName("http://lebaronjerome.supertp.ws.atod26.afcepf.fr",
+					"serviceAuthentification");
+			final Service service = Service.create(url, qName);
 			proxyServiceAuthentification = service.getPort(IServiceAuthentification.class);
 		} catch (MalformedURLException e) {
 			log.error(e);
@@ -37,21 +38,43 @@ public class ControlerWSImpl implements IControlerWS {
 	}
 
 	@Override
-	public String connect(String paramLogin, String paramMotDePasse) throws WSControlerException {
+	public String connect(final String paramLogin, final String paramMotDePasse) throws WSControlerException {
 		log.info("Méthode connect");
-		return null;
+		final String token = proxyServiceAuthentification.connexion(paramLogin, paramMotDePasse);
+		if (token == null) {
+			throw new WSControlerException("Erreur d'authentification");
+		}
+		return token;
 	}
 
 	@Override
-	public ReponseRechercheProduit rechercherProduit(Marque paramMarque, String paramToken) throws WSControlerException {
+	public ReponseRechercheProduit rechercherProduit(final Marque paramMarque, final String paramToken)
+			throws WSControlerException {
 		log.info("Méthode rechercherProduit");
-		return null;
+		final ReponseRechercheProduit reponseRechercheProduit = new ReponseRechercheProduit();
+		final String tokenVerifie = verificationToken(paramToken);
+		reponseRechercheProduit.setToken(tokenVerifie);
+		// TODO Finir l'implémentation : appeler le Dao et faire la recherche
+		return reponseRechercheProduit;
 	}
 
 	@Override
-	public ReponseGetAllMarque recupererToutesLesMarques(String paramToken) throws WSControlerException {
+	public ReponseGetAllMarque recupererToutesLesMarques(final String paramToken) throws WSControlerException {
 		log.info("Méthode recupererToutesLesMarques");
-		return null;
+		final ReponseGetAllMarque reponseGetAllMarque = new ReponseGetAllMarque();
+		final String tokenVerifie = verificationToken(paramToken);
+		reponseGetAllMarque.setToken(tokenVerifie);
+		// TODO Finir l'implémentation
+		return reponseGetAllMarque;
+	}
+
+	private String verificationToken(final String paramToken) throws WSControlerException {
+		log.info("Méthode privée verificationToken");
+		final String tokenVerifie = proxyServiceAuthentification.verificationToken(paramToken);
+		if (tokenVerifie == null) {
+			throw new WSControlerException("Token invalide");
+		}
+		return tokenVerifie;
 	}
 
 }

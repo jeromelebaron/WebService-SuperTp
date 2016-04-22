@@ -4,6 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(namespace = "http://controler.lebaronjerome.supertp.webservice.atod26.afcepf.fr")
 public class Marque {
+
 	/**
 	 * Identifiant de la marque
 	 */
