@@ -16,6 +16,7 @@
 		<module>WS-SuperTp-Authentification</module>
 		<module>WS-SuperTp-Controleur</module>
 		<module>WS-SuperTp-Data</module>
+		<module>WS-SuperTp-Fichier</module>
 	</modules>
 
 </project>
