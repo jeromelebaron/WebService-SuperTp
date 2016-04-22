@@ -2,7 +2,7 @@ package fr.afcepf.atod26.ws.supertp.data.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "marque", namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
+@XmlRootElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
 public class MarqueDTO {
 
 	/**

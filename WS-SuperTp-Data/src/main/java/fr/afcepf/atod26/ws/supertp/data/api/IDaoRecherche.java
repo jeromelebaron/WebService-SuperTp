@@ -19,6 +19,6 @@ public interface IDaoRecherche {
 
 	@WebMethod(operationName = "rechercherProduits")
 	@WebResult(name = "resultatRechercherProduit")
-	List<ProduitDTO> rechercherProduits(@WebParam(name = "marque") MarqueDTO paramMarque);
+	List<ProduitDTO> rechercherProduits(@WebParam(name = "paramMarqueDTO") MarqueDTO paramMarque);
 
 }

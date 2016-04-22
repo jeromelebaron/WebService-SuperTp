@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceUnit;
 
 import fr.afcepf.atod26.ws.supertp.data.api.IDaoRecherche;
+import fr.afcepf.atod26.ws.supertp.data.assembleur.DTOToEntity;
 import fr.afcepf.atod26.ws.supertp.data.assembleur.EntityToDTO;
 import fr.afcepf.atod26.ws.supertp.data.dto.MarqueDTO;
 import fr.afcepf.atod26.ws.supertp.data.dto.ProduitDTO;
@@ -40,9 +41,10 @@ public class DaoRechercherImpl implements IDaoRecherche {
 	}
 
 	@Override
-	public List<ProduitDTO> rechercherProduits(final MarqueEntity paramMarque) {
+	public List<ProduitDTO> rechercherProduits(final MarqueDTO paramMarque) {
+		final MarqueEntity marqueEntity = DTOToEntity.fromMarqueDTOToMarqueEntity(paramMarque);
 		List<ProduitEntity> lesProduitEntities = entityManager
-				.createQuery(REQUETE_FIND_PRODUIT_BY_MARQUE, ProduitEntity.class).setParameter("marque", paramMarque)
+				.createQuery(REQUETE_FIND_PRODUIT_BY_MARQUE, ProduitEntity.class).setParameter("marque", marqueEntity)
 				.getResultList();
 		List<ProduitDTO> lesProduitDTOs = new ArrayList<>();
 		for (ProduitEntity localProduitEntity : lesProduitEntities) {
