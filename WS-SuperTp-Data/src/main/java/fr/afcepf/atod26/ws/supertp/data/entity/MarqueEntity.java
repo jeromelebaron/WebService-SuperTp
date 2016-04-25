@@ -18,7 +18,7 @@ public class MarqueEntity {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id_marque;
 	/**
 	 * Libellé de la marque
 	 */
@@ -41,17 +41,17 @@ public class MarqueEntity {
 	 */
 	public MarqueEntity(Integer id, String libelle, List<ProduitEntity> lesProduits) {
 		super();
-		this.id = id;
+		this.id_marque = id;
 		this.libelle = libelle;
 		this.lesProduits = lesProduits;
 	}
 
 	public Integer getId() {
-		return id;
+		return id_marque;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.id_marque = id;
 	}
 
 	public String getLibelle() {

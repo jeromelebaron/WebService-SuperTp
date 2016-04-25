@@ -2,8 +2,8 @@ package fr.afcepf.atod26.ws.supertp.assembleur;
 
 import org.dozer.DozerBeanMapper;
 
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.MarqueDTO;
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.ProduitDTO;
+import fr.afcepf.atod26.webservice.supertp.ejb.MarqueDTO;
+import fr.afcepf.atod26.webservice.supertp.ejb.ProduitDTO;
 import fr.afcepf.atod26.ws.supertp.objets.Marque;
 import fr.afcepf.atod26.ws.supertp.objets.Produit;
 

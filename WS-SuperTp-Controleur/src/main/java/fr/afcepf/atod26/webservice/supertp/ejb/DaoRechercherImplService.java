@@ -1,4 +1,5 @@
-package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
+
+package fr.afcepf.atod26.webservice.supertp.ejb;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -16,48 +17,48 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "daoRecherche", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", wsdlLocation = "http://localhost:18080/WS-SuperTP-Data/daoRecherche/DaoRechercherImpl?wsdl")
-public class DaoRecherche
+@WebServiceClient(name = "DaoRechercherImplService", targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", wsdlLocation = "http://localhost:18080/WS-SuperTP-Data/DaoRechercherImpl?wsdl")
+public class DaoRechercherImplService
     extends Service
 {
 
-    private final static URL DAORECHERCHE_WSDL_LOCATION;
-    private final static WebServiceException DAORECHERCHE_EXCEPTION;
-    private final static QName DAORECHERCHE_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "daoRecherche");
+    private final static URL DAORECHERCHERIMPLSERVICE_WSDL_LOCATION;
+    private final static WebServiceException DAORECHERCHERIMPLSERVICE_EXCEPTION;
+    private final static QName DAORECHERCHERIMPLSERVICE_QNAME = new QName("http://ejb.supertp.webservice.atod26.afcepf.fr", "DaoRechercherImplService");
 
     static {
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://localhost:18080/WS-SuperTP-Data/daoRecherche/DaoRechercherImpl?wsdl");
+            url = new URL("http://localhost:18080/WS-SuperTP-Data/DaoRechercherImpl?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
-        DAORECHERCHE_WSDL_LOCATION = url;
-        DAORECHERCHE_EXCEPTION = e;
+        DAORECHERCHERIMPLSERVICE_WSDL_LOCATION = url;
+        DAORECHERCHERIMPLSERVICE_EXCEPTION = e;
     }
 
-    public DaoRecherche() {
-        super(__getWsdlLocation(), DAORECHERCHE_QNAME);
+    public DaoRechercherImplService() {
+        super(__getWsdlLocation(), DAORECHERCHERIMPLSERVICE_QNAME);
     }
 
-    public DaoRecherche(WebServiceFeature... features) {
-        super(__getWsdlLocation(), DAORECHERCHE_QNAME, features);
+    public DaoRechercherImplService(WebServiceFeature... features) {
+        super(__getWsdlLocation(), DAORECHERCHERIMPLSERVICE_QNAME, features);
     }
 
-    public DaoRecherche(URL wsdlLocation) {
-        super(wsdlLocation, DAORECHERCHE_QNAME);
+    public DaoRechercherImplService(URL wsdlLocation) {
+        super(wsdlLocation, DAORECHERCHERIMPLSERVICE_QNAME);
     }
 
-    public DaoRecherche(URL wsdlLocation, WebServiceFeature... features) {
-        super(wsdlLocation, DAORECHERCHE_QNAME, features);
+    public DaoRechercherImplService(URL wsdlLocation, WebServiceFeature... features) {
+        super(wsdlLocation, DAORECHERCHERIMPLSERVICE_QNAME, features);
     }
 
-    public DaoRecherche(URL wsdlLocation, QName serviceName) {
+    public DaoRechercherImplService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
 
-    public DaoRecherche(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+    public DaoRechercherImplService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
         super(wsdlLocation, serviceName, features);
     }
 
@@ -84,10 +85,10 @@ public class DaoRecherche
     }
 
     private static URL __getWsdlLocation() {
-        if (DAORECHERCHE_EXCEPTION!= null) {
-            throw DAORECHERCHE_EXCEPTION;
+        if (DAORECHERCHERIMPLSERVICE_EXCEPTION!= null) {
+            throw DAORECHERCHERIMPLSERVICE_EXCEPTION;
         }
-        return DAORECHERCHE_WSDL_LOCATION;
+        return DAORECHERCHERIMPLSERVICE_WSDL_LOCATION;
     }
 
 }

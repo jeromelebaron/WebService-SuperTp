@@ -2,26 +2,17 @@ package fr.afcepf.atod26.ws.supertp.data.api;
 
 import java.util.List;
 
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.jws.soap.SOAPBinding;
-import javax.jws.soap.SOAPBinding.Style;
 
 import fr.afcepf.atod26.ws.supertp.data.dto.MarqueDTO;
 import fr.afcepf.atod26.ws.supertp.data.dto.ProduitDTO;
 
 @WebService(targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
-@SOAPBinding(style = Style.DOCUMENT)
 public interface IDaoRecherche {
 
-	@WebMethod(operationName = "rechercherMarques")
-	@WebResult(name = "resultatRechercherMarque")
 	List<MarqueDTO> rechercherToutesLesMarques();
 
-	@WebMethod(operationName = "rechercheDeProduits")
-	@WebResult(name = "resultatRechercherProduit")
 	List<ProduitDTO> rechercherProduits(@WebParam(name = "paramMarqueDTO") MarqueDTO paramMarque);
 
 }

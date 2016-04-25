@@ -11,14 +11,14 @@ import javax.xml.ws.Service;
 
 import org.apache.log4j.Logger;
 
+import fr.afcepf.atod26.webservice.supertp.ejb.DaoRechercherImplService;
+import fr.afcepf.atod26.webservice.supertp.ejb.IDaoRecherche;
+import fr.afcepf.atod26.webservice.supertp.ejb.MarqueDTO;
+import fr.afcepf.atod26.webservice.supertp.ejb.ProduitDTO;
 import fr.afcepf.atod26.ws.supertp.assembleur.DTOToObjet;
 import fr.afcepf.atod26.ws.supertp.assembleur.ObjetToDTO;
 import fr.afcepf.atod26.ws.supertp.controleur.api.IControllerWS;
 import fr.afcepf.atod26.ws.supertp.controleur.api.IServiceAuthentification;
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.DaoRecherche;
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.IDaoRecherche;
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.MarqueDTO;
-import fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher.ProduitDTO;
 import fr.afcepf.atod26.ws.supertp.exception.WSControlerException;
 import fr.afcepf.atod26.ws.supertp.objets.Marque;
 import fr.afcepf.atod26.ws.supertp.objets.Produit;
@@ -62,9 +62,9 @@ public class ControlerWSImpl implements IControllerWS {
 		final ReponseRechercheProduit reponseRechercheProduit = new ReponseRechercheProduit();
 		final String tokenVerifie = verificationToken(paramToken);
 		reponseRechercheProduit.setToken(tokenVerifie);
-		DaoRecherche service = new DaoRecherche();
+		DaoRechercherImplService service = new DaoRechercherImplService();
 		IDaoRecherche proxyDaoRecherche = service.getDaoRechercherImplPort();
-		List<ProduitDTO> lesProduitDTO = proxyDaoRecherche.rechercheDeProduits(ObjetToDTO
+		List<ProduitDTO> lesProduitDTO = proxyDaoRecherche.rechercherProduits(ObjetToDTO
 				.fromMarqueToMarqueDTO(paramMarque));
 		List<Produit> lesProduit = new ArrayList<>();
 		for (ProduitDTO localProduitDTO : lesProduitDTO) {
@@ -80,9 +80,9 @@ public class ControlerWSImpl implements IControllerWS {
 		final ReponseGetAllMarque reponseGetAllMarque = new ReponseGetAllMarque();
 		final String tokenVerifie = verificationToken(paramToken);
 		reponseGetAllMarque.setToken(tokenVerifie);
-		DaoRecherche service = new DaoRecherche();
+		DaoRechercherImplService service = new DaoRechercherImplService();
 		IDaoRecherche proxyDaoRecherche = service.getDaoRechercherImplPort();
-		List<MarqueDTO> lesMarqueDTO = proxyDaoRecherche.rechercherMarques();
+		List<MarqueDTO> lesMarqueDTO = proxyDaoRecherche.rechercherToutesLesMarques();
 		List<Marque> lesMarques = new ArrayList<>();
 		for (MarqueDTO localMarqueDTO : lesMarqueDTO) {
 			lesMarques.add(DTOToObjet.fromMarqueDTOToMarque(localMarqueDTO));

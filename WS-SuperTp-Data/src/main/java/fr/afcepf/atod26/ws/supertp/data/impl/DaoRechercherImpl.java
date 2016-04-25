@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 import fr.afcepf.atod26.ws.supertp.data.api.IDaoRecherche;
 import fr.afcepf.atod26.ws.supertp.data.assembleur.DTOToEntity;
@@ -17,12 +17,12 @@ import fr.afcepf.atod26.ws.supertp.data.dto.ProduitDTO;
 import fr.afcepf.atod26.ws.supertp.data.entity.MarqueEntity;
 import fr.afcepf.atod26.ws.supertp.data.entity.ProduitEntity;
 
-@WebService(targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", endpointInterface = "fr.afcepf.atod26.ws.supertp.data.api.IDaoRecherche", serviceName = "daoRecherche")
+@WebService(targetNamespace = "http://ejb.supertp.webservice.atod26.afcepf.fr", endpointInterface = "fr.afcepf.atod26.ws.supertp.data.api.IDaoRecherche")
 @Remote
 @Stateless
 public class DaoRechercherImpl implements IDaoRecherche {
 
-	@PersistenceUnit(unitName = "WS-SuperTP-Data")
+	@PersistenceContext(unitName = "WS-SuperTP-Data")
 	private EntityManager entityManager;
 
 	private static final String REQUETE_FIND_ALL_MARQUE = "FROM MarqueEntity m";

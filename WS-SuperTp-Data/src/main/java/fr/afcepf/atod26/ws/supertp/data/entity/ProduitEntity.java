@@ -17,7 +17,7 @@ public class ProduitEntity {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Integer id_produit;
 	/**
 	 * Libelle du produit.
 	 */
@@ -54,7 +54,7 @@ public class ProduitEntity {
 	 */
 	public ProduitEntity(Integer id, String libelle, double prix, String description, MarqueEntity marque) {
 		super();
-		this.id = id;
+		this.id_produit = id;
 		this.libelle = libelle;
 		this.prix = prix;
 		this.description = description;
@@ -62,11 +62,11 @@ public class ProduitEntity {
 	}
 
 	public Integer getId() {
-		return id;
+		return id_produit;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.id_produit = id;
 	}
 
 	public String getLibelle() {

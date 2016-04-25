@@ -1,23 +1,25 @@
-package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
+
+package fr.afcepf.atod26.webservice.supertp.ejb;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for rechercheDeProduitsResponse complex type.
+ * <p>Java class for rechercherProduitsResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="rechercheDeProduitsResponse">
+ * &lt;complexType name="rechercherProduitsResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="resultatRechercherProduit" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}produitDTO" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://ejb.supertp.webservice.atod26.afcepf.fr}produitDTO" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,26 +29,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "rechercheDeProduitsResponse", propOrder = {
-    "resultatRechercherProduit"
+@XmlType(name = "rechercherProduitsResponse", propOrder = {
+    "_return"
 })
-public class RechercheDeProduitsResponse {
+public class RechercherProduitsResponse {
 
-    protected List<ProduitDTO> resultatRechercherProduit;
+    @XmlElement(name = "return")
+    protected List<ProduitDTO> _return;
 
     /**
-     * Gets the value of the resultatRechercherProduit property.
+     * Gets the value of the return property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the resultatRechercherProduit property.
+     * This is why there is not a <CODE>set</CODE> method for the return property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getResultatRechercherProduit().add(newItem);
+     *    getReturn().add(newItem);
      * </pre>
      * 
      * 
@@ -56,11 +59,11 @@ public class RechercheDeProduitsResponse {
      * 
      * 
      */
-    public List<ProduitDTO> getResultatRechercherProduit() {
-        if (resultatRechercherProduit == null) {
-            resultatRechercherProduit = new ArrayList<ProduitDTO>();
+    public List<ProduitDTO> getReturn() {
+        if (_return == null) {
+            _return = new ArrayList<ProduitDTO>();
         }
-        return this.resultatRechercherProduit;
+        return this._return;
     }
 
 }

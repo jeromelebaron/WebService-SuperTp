@@ -1,16 +1,14 @@
 package fr.afcepf.atod26.ws.supertp.data.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
-@XmlType(name = "marqueDTO")
 public class MarqueDTO {
 
 	/**
 	 * Identifiant de la marque
 	 */
-	private Integer id;
+	private Integer id_marque;
 	/**
 	 * Libellé de la marque
 	 */
@@ -30,16 +28,16 @@ public class MarqueDTO {
 	 */
 	public MarqueDTO(Integer id, String libelle) {
 		super();
-		this.id = id;
+		this.id_marque = id;
 		this.libelle = libelle;
 	}
 
 	public Integer getId() {
-		return id;
+		return id_marque;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.id_marque = id;
 	}
 
 	public String getLibelle() {

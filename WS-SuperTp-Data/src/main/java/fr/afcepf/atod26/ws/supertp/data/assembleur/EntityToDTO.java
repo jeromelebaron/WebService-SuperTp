@@ -22,7 +22,7 @@ public class EntityToDTO {
 		return produitDTO;
 	}
 
-	public static MarqueDTO fromMarqueEntityToMarqueDTO(MarqueEntity marque) {
+	public static MarqueDTO fromMarqueEntityToMarqueDTO(final MarqueEntity marque) {
 		final MarqueDTO marqueDTO = new MarqueDTO();
 		DOZER_BEAN_MAPPER.map(marque, marqueDTO);
 		return marqueDTO;

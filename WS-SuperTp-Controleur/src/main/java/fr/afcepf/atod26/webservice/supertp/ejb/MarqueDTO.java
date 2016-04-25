@@ -1,4 +1,5 @@
-package fr.afcepf.atod26.ws.supertp.controleur.proxys.daorechercher;
+
+package fr.afcepf.atod26.webservice.supertp.ejb;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

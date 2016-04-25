@@ -1,16 +1,14 @@
 package fr.afcepf.atod26.ws.supertp.data.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
-@XmlType(name = "produitDTO")
 public class ProduitDTO {
 
 	/**
 	 * Identifiant du produit.
 	 */
-	private Integer id;
+	private Integer id_produit;
 	/**
 	 * Libelle du produit.
 	 */
@@ -45,7 +43,7 @@ public class ProduitDTO {
 	 */
 	public ProduitDTO(Integer id, String libelle, double prix, String description, MarqueDTO marque) {
 		super();
-		this.id = id;
+		this.id_produit = id;
 		this.libelle = libelle;
 		this.prix = prix;
 		this.description = description;
@@ -53,11 +51,11 @@ public class ProduitDTO {
 	}
 
 	public Integer getId() {
-		return id;
+		return id_produit;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.id_produit = id;
 	}
 
 	public String getLibelle() {
