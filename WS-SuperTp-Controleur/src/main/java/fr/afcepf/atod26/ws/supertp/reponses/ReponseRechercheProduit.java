@@ -3,10 +3,12 @@ package fr.afcepf.atod26.ws.supertp.reponses;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 import fr.afcepf.atod26.ws.supertp.objets.Produit;
 
 @XmlRootElement(namespace = "http://controler.supertp.webservice.atod26.afcepf.fr")
+@XmlType(name = "reponseRechercheProduit")
 public class ReponseRechercheProduit {
 
 	/**

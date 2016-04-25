@@ -1,8 +1,10 @@
 package fr.afcepf.atod26.ws.supertp.data.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(namespace = "http://ejb.supertp.webservice.atod26.afcepf.fr")
+@XmlType(name = "produitDTO")
 public class ProduitDTO {
 
 	/**
