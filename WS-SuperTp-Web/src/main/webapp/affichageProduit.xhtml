@@ -10,13 +10,31 @@
 </h:head>
 <body>
 	<div class="container">
-		<div class="row">
-			<label class="col-md-2">Login : </label>
-			<h:inputText value="#{managedBeanTp.login}" styleClass="col-md-2" />
-			<label class="col-md-2">Mot de passe :</label>
-			<h:inputSecret value="#{managedBeanTp.motDePasse}"
-				styleClass="col-md-2" />
-		</div>
+		<h1>Gestion des marques</h1>
+		<h:form>
+			<div class="row">
+				<label class="col-md-2">Login : </label>
+				<h:inputText value="#{managedBeanTp.login}" styleClass="col-md-2" />
+				<label class="col-md-2">Mot de passe :</label>
+				<h:inputSecret value="#{managedBeanTp.motDePasse}"
+					styleClass="col-md-2" />
+				<h:commandButton action="#{managedBeanTp.connexion()}"
+					value="Se connecter" />
+			</div>
+			<div class="row">
+				<span class="col-md-2">Token : </span>
+				<h:outputLabel value="#{managedBeanTp.token}" />
+			</div>
+			<div class="row">
+				<label class="col-md-2">Marque</label>
+				<h:selectOneMenu value="#{managedBeanTp.marqueSelectionnee}">
+					<f:selectItem itemValue="1" itemLabel="-----" />
+					<f:selectItems value="#{managedBeanTp.lesMarques}" />
+				</h:selectOneMenu>
+				<h:commandButton action="#{managedBeanTp.afficherLesProduits()}"
+					value="Chercher les produits" />
+			</div>
+		</h:form>
 	</div>
 </body>
 </html>
