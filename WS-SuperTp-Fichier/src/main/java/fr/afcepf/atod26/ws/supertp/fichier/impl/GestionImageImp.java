@@ -20,9 +20,10 @@ public class GestionImageImp implements IGestionImage {
 
 	@Override
 	public List<String> recupererImage(final Integer idMarque, final Integer idProduit) {
+		log.info("Méthode recupererImage");
 		String pathImage = getClass().getResource("./").getPath();
 		pathImage = pathImage.split("/WEB-INF")[0];
-		final File dossierImage = new File(pathImage + "/products/marque-" + idMarque + "/" + idProduit);
+		final File dossierImage = new File(pathImage + "/resources/produits/marque-" + idMarque + "/" + idProduit);
 		final List<String> lesImages = new ArrayList<>();
 		if (dossierImage.exists() && dossierImage.isDirectory()) {
 			final File[] lesImagesDuDossier = dossierImage.listFiles();

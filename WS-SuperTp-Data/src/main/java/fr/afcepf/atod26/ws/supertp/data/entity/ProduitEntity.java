@@ -1,5 +1,6 @@
 package fr.afcepf.atod26.ws.supertp.data.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,8 @@ public class ProduitEntity {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_produit;
+	@Column(name="id_produit")
+	private Integer id;
 	/**
 	 * Libelle du produit.
 	 */
@@ -54,7 +56,7 @@ public class ProduitEntity {
 	 */
 	public ProduitEntity(Integer id, String libelle, double prix, String description, MarqueEntity marque) {
 		super();
-		this.id_produit = id;
+		this.id = id;
 		this.libelle = libelle;
 		this.prix = prix;
 		this.description = description;
@@ -62,11 +64,11 @@ public class ProduitEntity {
 	}
 
 	public Integer getId() {
-		return id_produit;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.id_produit = id;
+		this.id = id;
 	}
 
 	public String getLibelle() {

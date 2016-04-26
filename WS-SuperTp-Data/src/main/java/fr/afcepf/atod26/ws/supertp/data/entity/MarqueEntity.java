@@ -2,6 +2,7 @@ package fr.afcepf.atod26.ws.supertp.data.entity;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,8 @@ public class MarqueEntity {
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_marque;
+	@Column(name = "id_marque")
+	private Integer id;
 	/**
 	 * Libellé de la marque
 	 */
@@ -41,17 +43,17 @@ public class MarqueEntity {
 	 */
 	public MarqueEntity(Integer id, String libelle, List<ProduitEntity> lesProduits) {
 		super();
-		this.id_marque = id;
+		this.id = id;
 		this.libelle = libelle;
 		this.lesProduits = lesProduits;
 	}
 
 	public Integer getId() {
-		return id_marque;
+		return id;
 	}
 
 	public void setId(Integer id) {
-		this.id_marque = id;
+		this.id = id;
 	}
 
 	public String getLibelle() {
